@@ -1,11 +1,10 @@
 package com.team29.ArtifactV2.domain.member.dto;
 
 import com.team29.ArtifactV2.domain.member.entity.Member;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.ArrayList;
 import java.util.Collection;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 
 public class CustomUserDetails implements UserDetails {
