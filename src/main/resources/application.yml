@@ -2,23 +2,31 @@ spring:
   application:
     name: Artifact
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:tcp://localhost/~/database/dev_db
-    #jdbc:h2:file:~/database/test29
-    #jdbc:h2:tcp://localhost/~/database/test29 // ?? ??
-    username: sa
-    password:
+    #url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:mysql://localhost:3306/trabbit?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: dudwo
+    # driver-class-name: org.h2.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   # JPA ??
   jpa:
     hibernate:
       ddl-auto: create
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.H2Dialect  # H2 Dialect ?? ??
+        # dialect: org.hibernate.dialect.H2Dialect
+        dialect: org.hibernate.dialect.MySQL8Dialect # MySQL 8 이상일 경우 이 dialect를 사용
         default_batch_fetch_size: 100
         format_sql: true
         highlight_sql: true
         use_sql_comments: true
+  jwt:
+    secret: vmfhaltmskdlstkfkdgodyroqkfwkdbalroqkfwkdbalaaaaaaaaaaaaaaaabbbbb
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
 
 ## ?? ??
 logging:
@@ -28,3 +36,15 @@ logging:
     org.hibernate.orm.jdbc.bind: TRACE
     org.hibernate.orm.jdbc.extract: TRACE
     org.springframework.transaction.interceptor: TRACE
+
+
+clova:
+  host: "https://clovastudio.stream.ntruss.com"
+  api:
+    key: "NTA0MjU2MWZlZTcxNDJiYwKxUYTkz3GsepHyHL3NBoV81n2oRizf5o+YDgmW7V86"  # 실제 API 키로 대체
+    primary:
+      key: "62lEcMRKjN22EFkx7bd7xLcAC99fHsMwAElebDCP"  # 실제 기본 API 키로 대체
+  request:
+    id: "7e52851c-cbef-4745-81d6-039b4bcd8e49"  # 실제 요청 ID로 대체
+  preset:
+    content:
